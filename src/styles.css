@@ -1,3 +1,48 @@
+@font-face {
+  font-family: "Signika";
+  src:
+    url("./Signika-Bold.woff2") format("woff2"),
+    url("./Signika-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Signika";
+  src:
+    url("./Signika-Regular.woff2") format("woff2"),
+    url("./Signika-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Signika";
+  src:
+    url("./Signika-SemiBold.woff2") format("woff2"),
+    url("./Signika-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background-color: lavender;
+  width: 90vw;
+  width: clamp(16rem, 90vw, 70rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+p,
+span {
+  margin: 0;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
 }
