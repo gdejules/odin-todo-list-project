@@ -8,6 +8,10 @@ export default {
     path: path.resolve(import.meta.dirname, "dist"),
     clean: true,
   },
+  devtool: "eval-source-map",
+  devServer: {
+    watchFiles: ["./src/app.html"],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/app.html",
