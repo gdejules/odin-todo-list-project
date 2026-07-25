@@ -119,3 +119,8 @@ p {
   line-height: 1.2;
   max-width: 90ch;
 }
+
+#input-list {
+  display: flex;
+  gap: var(--space-s-l);
+}
