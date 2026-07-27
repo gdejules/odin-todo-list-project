@@ -27,6 +27,37 @@
               placeholder="Description"
           /></label>
         </div>
+        <div>
+          <label><input type="date" name="date" id="date" /></label>
+        </div>
+        <fieldset>
+          <legend>Select priority for the task</legend>
+          <div>
+            <input type="radio" name="priority" id="priority" value="low" />
+            <label>Low</label>
+          </div>
+          <div>
+            <input type="radio" name="priority" id="priority" value="medium" />
+            <label>Medium</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="priority"
+              id="priority"
+              value="high"
+              checked
+            />
+            <label>High</label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="project-select">Which project this task belong to:</label>
+          <select name="project" id="project-select">
+            <option value="general">General</option>
+            <option value="other">Other project</option>
+          </select>
+        </div>
         <div><input type="submit" value="Add task" /></div>
       </form>
       <section id="content"></section>

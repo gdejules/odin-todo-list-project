@@ -1,7 +1,10 @@
 export class Todo {
-  constructor(title, description) {
+  constructor(title, description, dueDate, priority, project) {
     this.title = title;
     this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.project = project;
     this.completion = false;
   }
 
@@ -9,25 +12,3 @@ export class Todo {
     this.completion = true;
   }
 }
-
-class Project {
-  constructor() {
-    this.tasks = [];
-  }
-
-  #addTask(task) {
-    this.tasks.push(task);
-  }
-
-  addTaskToProject(taskObject) {
-    const newTask = new Todo(taskObject.title, taskObject.description);
-    this.#addTask(newTask);
-    return newTask;
-  }
-
-  getLastTask() {
-    return this.tasks[this.tasks.length - 1];
-  }
-}
-
-export const general = new Project();
