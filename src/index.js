@@ -33,7 +33,7 @@ form.addEventListener("submit", (e) => {
   const newTaskCard = new TaskCard(
     lastTask.title,
     lastTask.description,
-    lastTask.date,
+    lastTask.dueDate,
     lastTask.priority,
     lastTask.project,
   );
@@ -48,10 +48,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (savedTask) {
     const newTask = JSON.parse(savedTask);
+    console.log(newTask);
     const newTaskCard = new TaskCard(
       newTask.title,
       newTask.description,
-      newTask.date,
+      newTask.dueDate,
       newTask.priority,
       newTask.project,
     );
