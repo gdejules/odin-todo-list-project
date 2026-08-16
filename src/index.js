@@ -18,9 +18,8 @@ form.addEventListener("submit", (e) => {
   const project = document.getElementById("project-select").value;
 
   const taskObject = new Todo(title, description, dueDate, priority, project);
-  taskObject.saveToStorage();
-  console.log;
   general.addTaskToProject(taskObject);
+  general.saveToStorage();
 
   const lastTask = general.getLastTask();
   console.log(lastTask);
@@ -44,19 +43,22 @@ form.addEventListener("submit", (e) => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  const savedTask = localStorage.getItem("todoData");
+  const savedTaskList = localStorage.getItem("todoData");
+  console.log(savedTaskList);
 
-  if (savedTask) {
-    const newTask = JSON.parse(savedTask);
-    console.log(newTask);
-    const newTaskCard = new TaskCard(
-      newTask.title,
-      newTask.description,
-      newTask.dueDate,
-      newTask.priority,
-      newTask.project,
-    );
+  if (savedTaskList) {
+    const taskList = JSON.parse(savedTaskList);
+    console.log(taskList);
+    const displayedTaskList = taskList.map((task) => {
+      const displayedCard = new TaskCard(
+        task.title,
+        task.description,
+        task.dueDate,
+        task.priority,
+        task.project,
+      );
 
-    mainContent.appendChild(newTaskCard.createCard());
+      mainContent.appendChild(displayedCard.createCard());
+    });
   }
 });

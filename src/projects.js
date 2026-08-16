@@ -1,5 +1,3 @@
-import { Todo } from "./todos.js";
-
 export class Project {
   constructor() {
     this.tasks = [];
@@ -11,6 +9,10 @@ export class Project {
 
   getLastTask() {
     return this.tasks[this.tasks.length - 1];
+  }
+
+  saveToStorage() {
+    localStorage.setItem("todoData", JSON.stringify(this.tasks));
   }
 }
 
