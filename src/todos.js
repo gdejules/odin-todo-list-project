@@ -11,4 +11,8 @@ export class Todo {
   isDone() {
     this.completion = true;
   }
+
+  saveToStorage() {
+    localStorage.setItem("todoData", JSON.stringify(this));
+  }
 }
