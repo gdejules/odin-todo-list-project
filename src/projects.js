@@ -5,20 +5,8 @@ export class Project {
     this.tasks = [];
   }
 
-  #addTask(task) {
-    this.tasks.push(task);
-  }
-
   addTaskToProject(taskObject) {
-    const newTask = new Todo(
-      taskObject.title,
-      taskObject.description,
-      taskObject.dueDate,
-      taskObject.priority,
-      taskObject.project,
-    );
-    this.#addTask(newTask);
-    return newTask;
+    this.tasks.push(taskObject);
   }
 
   getLastTask() {
