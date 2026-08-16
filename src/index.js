@@ -23,11 +23,6 @@ form.addEventListener("submit", (e) => {
 
   const lastTask = general.getLastTask();
   console.log(lastTask);
-  // const titleText = general.getLastTask().title;
-  // const descText = general.getLastTask().description;
-  // const dateInfo = general.getLastTask().date;
-  // const priorityInfo = general.getLastTask().priority;
-  // const projectInfo = general.getLastTask().project;
 
   const newTaskCard = new TaskCard(
     lastTask.title,
@@ -44,12 +39,20 @@ form.addEventListener("submit", (e) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   const savedTaskList = localStorage.getItem("todoData");
-  console.log(savedTaskList);
 
   if (savedTaskList) {
     const taskList = JSON.parse(savedTaskList);
-    console.log(taskList);
-    const displayedTaskList = taskList.map((task) => {
+
+    taskList.forEach((task) => {
+      const todoObject = new Todo(
+        task.title,
+        task.description,
+        task.dueDate,
+        task.priority,
+        task.project,
+      );
+      general.addTaskToProject(todoObject);
+
       const displayedCard = new TaskCard(
         task.title,
         task.description,
@@ -57,7 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
         task.priority,
         task.project,
       );
-
       mainContent.appendChild(displayedCard.createCard());
     });
   }
